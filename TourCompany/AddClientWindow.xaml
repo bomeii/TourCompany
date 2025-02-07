@@ -1,0 +1,15 @@
+﻿<Window x:Class="TourCompany.AddClientWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Добавить клиента" Height="300" Width="400">
+    <Grid>
+        <StackPanel Margin="20">
+            <TextBox x:Name="LastNameBox" PlaceholderText="Фамилия"/>
+            <TextBox x:Name="FirstNameBox" PlaceholderText="Имя"/>
+            <TextBox x:Name="MiddleNameBox" PlaceholderText="Отчество"/>
+            <TextBox x:Name="AddressBox" PlaceholderText="Адрес"/>
+            <TextBox x:Name="PhoneBox" PlaceholderText="Телефон"/>
+            <Button Content="Добавить" Click="AddClient_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

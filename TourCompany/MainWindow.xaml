@@ -1,0 +1,55 @@
+﻿<Window x:Class="TourCompany.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Туристическая компания" Height="500" Width="800">
+
+    <Grid>
+        <TabControl>
+            <TabItem Header="Клиенты">
+                <StackPanel>
+                    <DataGrid x:Name="ClientsGrid" AutoGenerateColumns="False" Height="200">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Фамилия" Binding="{Binding LastName}" Width="*"/>
+                            <DataGridTextColumn Header="Имя" Binding="{Binding FirstName}" Width="*"/>
+                            <DataGridTextColumn Header="Отчество" Binding="{Binding MiddleName}" Width="*"/>
+                            <DataGridTextColumn Header="Адрес" Binding="{Binding Address}" Width="*"/>
+                            <DataGridTextColumn Header="Телефон" Binding="{Binding Phone}" Width="*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button Content="Добавить клиента" Click="OpenAddClientWindow"/>
+                    <Button Content="Удалить клиента" Click="DeleteClient_Click"/>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Путевки">
+                <StackPanel>
+                    <DataGrid x:Name="ToursGrid" AutoGenerateColumns="False" Height="200">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Страна" Binding="{Binding Country}" Width="*"/>
+                            <DataGridTextColumn Header="Климат" Binding="{Binding Climate}" Width="*"/>
+                            <DataGridTextColumn Header="Класс отеля" Binding="{Binding HotelClass}" Width="*"/>
+                            <DataGridTextColumn Header="Длительность (дн.)" Binding="{Binding Duration}" Width="*"/>
+                            <DataGridTextColumn Header="Цена" Binding="{Binding Price}" Width="*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button Content="Добавить путёвку" Click="OpenAddTourWindow"/>
+                    <Button Content="Оформить путевку" Click="BuyTour_Click"/>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Скидки">
+                <StackPanel>
+                    <DataGrid x:Name="SalesGrid" AutoGenerateColumns="False" Height="200">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Клиент" Binding="{Binding Client.LastName}" Width="*"/>
+                            <DataGridTextColumn Header="Страна" Binding="{Binding Tour.Country}" Width="*"/>
+                            <DataGridTextColumn Header="Дата отправления" Binding="{Binding SaleDate}" Width="*"/>
+                            <DataGridTextColumn Header="Скидка" Binding="{Binding Discount, StringFormat=N2}" Width="*"/>
+                            <DataGridTextColumn Header="Итоговая цена" Binding="{Binding TotalPrice, StringFormat=N2}" Width="*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button Content="Добавить скидку" Click="OpenAddDiscountWindow"/>
+                    <Button Content="Обновить скидку" Click="UpdateDiscount_Click"/>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
