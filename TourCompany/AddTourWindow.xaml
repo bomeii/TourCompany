@@ -1,15 +1,26 @@
 ﻿<Window x:Class="TourCompany.AddTourWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Добавить путёвку" Height="300" Width="400">
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Добавить путёвку" Height="400" Width="400">
     <Grid>
         <StackPanel Margin="20">
-            <TextBox x:Name="CountryBox" PlaceholderText="Страна"/>
-            <TextBox x:Name="ClimateBox" PlaceholderText="Климат"/>
-            <TextBox x:Name="HotelClassBox" PlaceholderText="Класс отеля"/>
-            <TextBox x:Name="DurationBox" PlaceholderText="Длительность (дн.)"/>
-            <TextBox x:Name="PriceBox" PlaceholderText="Цена"/>
-            <Button Content="Добавить" Click="AddTour_Click"/>
+            <Label Content="Страна"/>
+            <TextBox x:Name="CountryBox" materialDesign:HintAssist.Hint="Введите страну"/>
+
+            <Label Content="Климат"/>
+            <TextBox x:Name="ClimateBox" materialDesign:HintAssist.Hint="Введите климат"/>
+
+            <Label Content="Класс отеля"/>
+            <TextBox x:Name="HotelClassBox" materialDesign:HintAssist.Hint="Введите класс отеля"/>
+
+            <Label Content="Длительность (дн.)"/>
+            <TextBox x:Name="DurationBox" materialDesign:HintAssist.Hint="Введите длительность"/>
+
+            <Label Content="Цена"/>
+            <TextBox x:Name="PriceBox" materialDesign:HintAssist.Hint="Введите цену"/>
+
+            <Button Content="Добавить путёвку" Click="AddTour_Click"/>
         </StackPanel>
     </Grid>
 </Window>

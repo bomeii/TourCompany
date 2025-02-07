@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Windows;
+using Microsoft.EntityFrameworkCore;
 
 namespace TourCompany
 {
@@ -16,8 +17,13 @@ namespace TourCompany
 
         private void LoadSales()
         {
-            SalesComboBox.ItemsSource = _context.Sales.ToList();
-            SalesComboBox.DisplayMemberPath = "ID";
+            SalesComboBox.ItemsSource = _context.Sales
+                .Include(s => s.Client)
+                .Include(s => s.Tour)
+                .ToList();
+
+            SalesComboBox.DisplayMemberPath = "DisplayText";
+            SalesComboBox.SelectedValuePath = "ID";
         }
 
         private void UpdateDiscount_Click(object sender, RoutedEventArgs e)
@@ -30,9 +36,9 @@ namespace TourCompany
                 _context.Sales.Update(selectedSale);
                 _context.SaveChanges();
                 MessageBox.Show("Скидка обновлена!");
-
                 this.Close();
             }
         }
+
     }
 }

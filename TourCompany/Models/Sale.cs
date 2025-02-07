@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-public class Sale
+public partial class Sale
 {
     [Key]
     public int ID { get; set; }
@@ -24,4 +24,8 @@ public class Sale
 
     [Required]
     public decimal TotalPrice { get; set; }
+
+    public string DisplayText => Client != null && Tour != null
+        ? $"{Client.LastName} {Client.FirstName} - {Tour.Country}"
+        : "Неизвестная продажа";
 }
